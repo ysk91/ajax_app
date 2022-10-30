@@ -1,14 +1,15 @@
 <div class="container">
   <h1 class="mt-5">Users#index</h1>
 
-  <ul id=users>
+  <ul class="users">
+    <!-- renderで表示するのはajax操作前の情報 -->
     <!-- パーシャル内で使用するusersローカル変数にindexアクション内で定義した@usersを代入する -->
     <%= render "user", users: @users %>
   </ul>
 
   <br>
 
-  <%= form_with model: @user do |f| %>
+  <%= form_with model: @user, class: "user-form", local: false do |f| %>
     <%= f.label :name %><br>
     <%= f.text_field :name %>
     <%= f.submit %>

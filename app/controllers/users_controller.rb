@@ -11,10 +11,9 @@ class UsersController < ApplicationController
       if @user.save
         format.html { redirect_to users_path, notice: 'User was successfully created.' }
         format.js
-        format.json { render json: @user, status: :created, location: @user }
       else
-        format.html { render action: "new" }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        format.html { render "index" }
+        format.js { render :errors }
       end
     end
   end
